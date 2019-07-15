@@ -1,30 +1,111 @@
 @echo off
 echo ===============================================================================
-CertUtil -hashfile "User\GC\MPN-A.USA.raw" | find /i "18 58 79 d9 42 ce 98 90 84 fe 85 a1 58 51 2a ad 88 71 0d 70"
+CertUtil -hashfile "User\GC\USA\Card A\01-GMPE-MARIPA4BOX0.gci" | find /i "90 b0 1e 36 70 b5 9c af 4d 6f 52 ff ee 73 2d f6 00 d7 c5 58"
 if not errorlevel 1 (
-	echo Your GameCube Slot A Memory Card is correct!
-	goto CheckGcB
+	echo Your Mario Party 4 save is correct!
+	goto CheckMp5
 ) else (
 	set GCSLOTA="n"
-	set /p GCSLOTA=Your GameCube Slot A Memory Card has been changed. Replace? )
-	if /I "%GCSLOTA%"=="yes" goto ReplaceGcA
-	if /I "%GCSLOTA%"=="y" goto ReplaceGcA
-	if /I "%GCSLOTA%"=="no" goto CheckGcB
-	if /I "%GCSLOTA%"=="n" goto CheckGcB
+	set /p GCSLOTA=Your Mario Party 4 save has been changed. Replace? )
+	if /I "%GCSLOTA%"=="yes" goto ReplaceMp4
+	if /I "%GCSLOTA%"=="y" goto ReplaceMp4
+	if /I "%GCSLOTA%"=="no" goto CheckMp5
+	if /I "%GCSLOTA%"=="n" goto CheckMp5
 )
 
-:ReplaceGcA
-copy /y User\Backup\MPN-A.USA.raw User\GC
-CertUtil -hashfile "User\GC\MPN-A.USA.raw" | find /i "18 58 79 d9 42 ce 98 90 84 fe 85 a1 58 51 2a ad 88 71 0d 70"
+:ReplaceMp4
+copy /y "User\Backup\01-GMPE-MARIPA4BOX0.gci" "User\GC\USA\Card A"
+CertUtil -hashfile "User\GC\USA\Card A\01-GMPE-MARIPA4BOX0.gci" | find /i "90 b0 1e 36 70 b5 9c af 4d 6f 52 ff ee 73 2d f6 00 d7 c5 58"
 if not errorlevel 1 (
-	echo You now have the correct GameCube Slot A files!
+	echo You now have the correct Mario Party 4 file!
 ) else (
 	color 4F
-	echo There was an error replacing the GameCube Slot A files...
+	echo There was an error replacing the Mario Party 4 file...
 	pause
 )
 
-:CheckGcB
+:CheckMp5
+echo ===============================================================================
+CertUtil -hashfile "User\GC\USA\Card A\01-GP5E-MARIPA5.gci" | find /i "c7 43 22 46 6c 71 39 65 11 ed 76 80 ba 47 92 4b 70 39 d7 51"
+if not errorlevel 1 (
+	echo Your Mario Party 5 save is correct!
+	goto CheckMp6
+) else (
+	set GCSLOTA="n"
+	set /p GCSLOTA=Your Mario Party 5 save has been changed. Replace? )
+	if /I "%GCSLOTA%"=="yes" goto ReplaceMp5
+	if /I "%GCSLOTA%"=="y" goto ReplaceMp5
+	if /I "%GCSLOTA%"=="no" goto CheckMp6
+	if /I "%GCSLOTA%"=="n" goto CheckMp6
+)
+
+:ReplaceMp5
+copy /y "User\Backup\01-GP5E-MARIPA5.gci" "User\GC\USA\Card A"
+CertUtil -hashfile "User\GC\USA\Card A\01-GP5E-MARIPA5.gci" | find /i "c7 43 22 46 6c 71 39 65 11 ed 76 80 ba 47 92 4b 70 39 d7 51"
+if not errorlevel 1 (
+	echo You now have the correct Mario Party 5 file!
+) else (
+	color 4F
+	echo There was an error replacing the Mario Party 5 file...
+	pause
+)
+
+:CheckMp6
+echo ===============================================================================
+CertUtil -hashfile "User\GC\USA\Card A\01-GP6E-MARIPA6.gci" | find /i "01 68 58 cc 41 5c d2 ec e6 4e 94 81 b5 73 01 c3 f6 e3 ac 27"
+if not errorlevel 1 (
+	echo Your Mario Party 6 save is correct!
+	goto CheckMp7
+) else (
+	set GCSLOTA="n"
+	set /p GCSLOTA=Your Mario Party 6 save has been changed. Replace? )
+	if /I "%GCSLOTA%"=="yes" goto ReplaceMp6
+	if /I "%GCSLOTA%"=="y" goto ReplaceMp6
+	if /I "%GCSLOTA%"=="no" goto CheckMp7
+	if /I "%GCSLOTA%"=="n" goto CheckMp7
+)
+
+:ReplaceMp6
+copy /y "User\Backup\01-GP6E-MARIPA6.gci" "User\GC\USA\Card A"
+CertUtil -hashfile "User\GC\USA\Card A\01-GP6E-MARIPA6.gci" | find /i "01 68 58 cc 41 5c d2 ec e6 4e 94 81 b5 73 01 c3 f6 e3 ac 27"
+if not errorlevel 1 (
+	echo You now have the correct Mario Party 6 file!
+) else (
+	color 4F
+	echo There was an error replacing the Mario Party 6 file...
+	pause
+)
+
+:CheckMp7
+echo ===============================================================================
+CertUtil -hashfile "User\GC\USA\Card A\01-GP7E-MARIPA7.gci" | find /i "e9 2e a0 cb 00 88 fd 72 aa 0f 19 26 9a 15 a9 19 58 58 d6 39"
+if not errorlevel 1 (
+	echo Your Mario Party 7 save is correct!
+	goto CheckRest
+) else (
+	set GCSLOTA="n"
+	set /p GCSLOTA=Your Mario Party 7 save has been changed. Replace? )
+	if /I "%GCSLOTA%"=="yes" goto ReplaceMp7
+	if /I "%GCSLOTA%"=="y" goto ReplaceMp7
+	if /I "%GCSLOTA%"=="no" goto CheckRest
+	if /I "%GCSLOTA%"=="n" goto CheckRest
+)
+
+:ReplaceMp7
+copy /y "User\Backup\01-GP7E-MARIPA7.gci" "User\GC\USA\Card A"
+CertUtil -hashfile "User\GC\USA\Card A\01-GP7E-MARIPA7.gci" | find /i "e9 2e a0 cb 00 88 fd 72 aa 0f 19 26 9a 15 a9 19 58 58 d6 39"
+if not errorlevel 1 (
+	echo You now have the correct Mario Party 7 file!
+) else (
+	color 4F
+	echo There was an error replacing the Mario Party 7 file...
+	pause
+)
+
+:CheckRest
+echo ===============================================================================
+xcopy "User\Backup\others" "User\GC\USA\Card A" /s /y /e /q
+echo Your other GC saves are correct!
 
 :CheckWii
 echo ===============================================================================
@@ -54,10 +135,10 @@ if not errorlevel 1 (
 
 :CheckRest
 echo ===============================================================================
-CertUtil -hashfile "User\Wii\title\00010000\53535145\data\save.dat" | find /i "36 9a e1 07 f7 28 99 e2 d7 dd 77 8f 1d 6a f1 bd 1a 8a 73 9e"
+CertUtil -hashfile "User\Wii\title\00010000\53535145\data\save.dat" | find /i "b5 ad 58 34 06 7d e2 6b 04 e2 01 8b 19 f3 8a ab af 02 a4 5e"
 if errorlevel 1 (
 	xcopy "User\Backup\title\00010000\53535145" "User\Wii\title\00010000\53535145" /s /y /e
-	echo Your Mario Party 9 save has been replaced!
+	echo Your Mario Party 9 save was incorrect, but is now correct!
 )
 CertUtil -hashfile "User\Wii\title\00010001\4e415a45\data\EEP_NMWE" | find /i "96 7c bd 79 f7 a0 59 b4 63 80 31 e7 e1 5b 13 bc 80 24 b1 82"
 if errorlevel 1 (
