@@ -1,6 +1,6 @@
 @echo off
 echo ===============================================================================
-CertUtil -hashfile "User\GC\USA\Card A\01-GMPE-MARIPA4BOX0.gci" | find /i "90 b0 1e 36 70 b5 9c af 4d 6f 52 ff ee 73 2d f6 00 d7 c5 58"
+CertUtil -hashfile "User\GC\USA\Card A\01-GMPE-MARIPA4BOX0.gci" | find /i "26 6d bf 6b 52 a1 8d 88 6e 93 4e 61 35 9b d2 7c 15 ff 19 73"
 if not errorlevel 1 (
 	echo Your Mario Party 4 save is correct!
 	goto CheckMp5
@@ -15,7 +15,7 @@ if not errorlevel 1 (
 
 :ReplaceMp4
 copy /y "User\Backup\01-GMPE-MARIPA4BOX0.gci" "User\GC\USA\Card A"
-CertUtil -hashfile "User\GC\USA\Card A\01-GMPE-MARIPA4BOX0.gci" | find /i "90 b0 1e 36 70 b5 9c af 4d 6f 52 ff ee 73 2d f6 00 d7 c5 58"
+CertUtil -hashfile "User\GC\USA\Card A\01-GMPE-MARIPA4BOX0.gci" | find /i "26 6d bf 6b 52 a1 8d 88 6e 93 4e 61 35 9b d2 7c 15 ff 19 73"
 if not errorlevel 1 (
 	echo You now have the correct Mario Party 4 file!
 ) else (
@@ -52,7 +52,7 @@ if not errorlevel 1 (
 
 :CheckMp6
 echo ===============================================================================
-CertUtil -hashfile "User\GC\USA\Card A\01-GP6E-MARIPA6.gci" | find /i "01 68 58 cc 41 5c d2 ec e6 4e 94 81 b5 73 01 c3 f6 e3 ac 27"
+CertUtil -hashfile "User\GC\USA\Card A\01-GP6E-MARIPA6.gci" | find /i "91 82 ab dd 1e b1 3b 6e f7 8a 26 d9 47 a5 ea f9 4b 04 53 f0"
 if not errorlevel 1 (
 	echo Your Mario Party 6 save is correct!
 	goto CheckMp7
@@ -67,7 +67,7 @@ if not errorlevel 1 (
 
 :ReplaceMp6
 copy /y "User\Backup\01-GP6E-MARIPA6.gci" "User\GC\USA\Card A"
-CertUtil -hashfile "User\GC\USA\Card A\01-GP6E-MARIPA6.gci" | find /i "01 68 58 cc 41 5c d2 ec e6 4e 94 81 b5 73 01 c3 f6 e3 ac 27"
+CertUtil -hashfile "User\GC\USA\Card A\01-GP6E-MARIPA6.gci" | find /i "91 82 ab dd 1e b1 3b 6e f7 8a 26 d9 47 a5 ea f9 4b 04 53 f0"
 if not errorlevel 1 (
 	echo You now have the correct Mario Party 6 file!
 ) else (
