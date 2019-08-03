@@ -107,29 +107,29 @@ echo ===========================================================================
 xcopy "User\Backup\others" "User\GC\USA\Card A" /s /y /e /q
 echo Your other GC saves are correct!
 
-:CheckWii
+:CheckMP8
 echo ===============================================================================
 CertUtil -hashfile "User\Wii\title\00010000\524d3845\data\mp8save.bin" | find /i "1f 7f 16 9f 96 4a 62 69 fa 5f d1 fd 16 39 d0 13 1f 44 f3 7a"
 if not errorlevel 1 (
-	echo Your Wii saves are correct!
+	echo Your Mario Party 8 save is correct!
 	goto CheckRest
 ) else (
 	set WII="n"
-	set /p WII=Your Wii saves have been changed. Replace? )
-	if /I "%WII%"=="yes" goto ReplaceWii
-	if /I "%WII%"=="y" goto ReplaceWii
+	set /p WII=Your Mario Party 8 save has been changed. Replace? )
+	if /I "%WII%"=="yes" goto ReplaceMP8
+	if /I "%WII%"=="y" goto ReplaceMP8
 	if /I "%WII%"=="no" goto CheckRest
 	if /I "%WII%"=="n" goto CheckRest
 )
 
-:ReplaceWii
-xcopy "User\Backup\title\00010000" "User\Wii\title\00010000" /s /y /e
+:ReplaceMP8
+xcopy "User\Backup\title\00010000\524d3845" "User\Wii\title\00010000\524d3845" /s /y /e
 CertUtil -hashfile "User\Wii\title\00010000\524d3845\data\mp8save.bin" | find /i "1f 7f 16 9f 96 4a 62 69 fa 5f d1 fd 16 39 d0 13 1f 44 f3 7a"
 if not errorlevel 1 (
-	echo You now have the correct Wii files!
+	echo You now have the correct Mario Party 8 file!
 ) else (
 	color 4F
-	echo There was an error replacing the Wii files...
+	echo There was an error replacing the Mario Party 8 file...
 	pause
 )
 
@@ -145,6 +145,17 @@ if errorlevel 1 (
 	xcopy "User\Backup\title\00010001\4e415a45" "User\Wii\title\00010001\4e415a45" /s /y /e
 	echo Your MP2 Virtual Console save was incorrect, but is now correct!
 )
+set /p answer=Do you want to replace your other Wii saves?
+if /I "%answer%"=="yes" goto ReplaceOthers
+if /I "%answer%"=="y" goto ReplaceOthers
+if /I "%answer%"=="no" goto End
+if /I "%answer%"=="n" goto End
+
+:ReplaceOthers
+xcopy "User\Backup\00010000" "User\Wii\title\00010000" /s /y /e
+	echo Your other Wii saves are correct!
+
+:End
 echo ===============================================================================
 color 2F
 echo The check is done!
